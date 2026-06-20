@@ -9,12 +9,15 @@ import { NAV_LINKS, SITE_CONFIG } from "@/constants/navigation";
 import { useCartStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useMounted } from "@/hooks/use-mounted";
 
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const mounted = useMounted();
   const itemCount = useCartStore((s) => s.getItemCount());
+  const showCartBadge = mounted && itemCount > 0;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -83,7 +86,7 @@ export function Navbar() {
               <ShoppingCart className="h-5 w-5" />
             </Button>
             <AnimatePresence>
-              {itemCount > 0 && (
+            {showCartBadge && (
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}

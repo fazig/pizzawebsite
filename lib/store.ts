@@ -1,7 +1,7 @@
 "use client";
 
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { persist, createJSONStorage } from "zustand/middleware";
 import {
   CartItem,
   CustomerInfo,
@@ -108,7 +108,11 @@ export const useCartStore = create<CartStore>()(
       getItemCount: () =>
         get().items.reduce((sum, i) => sum + i.quantity, 0),
     }),
-    { name: "fazig-cart" }
+    {
+      name: "fazig-cart",
+      storage: createJSONStorage(() => localStorage),
+      skipHydration: true,
+    }
   )
 );
 
@@ -152,7 +156,11 @@ export const useOrderStore = create<OrderStore>()(
       updateTrackingStatus: (status) => set({ trackingStatus: status }),
       setCurrentOrder: (order) => set({ currentOrder: order }),
     }),
-    { name: "fazig-orders" }
+    {
+      name: "fazig-orders",
+      storage: createJSONStorage(() => localStorage),
+      skipHydration: true,
+    }
   )
 );
 
@@ -189,9 +197,19 @@ export const useAuthStore = create<AuthStore>()(
           userEmail: "",
         }),
     }),
-    { name: "fazig-auth" }
+    {
+      name: "fazig-auth",
+      storage: createJSONStorage(() => localStorage),
+      skipHydration: true,
+    }
   )
 );
+
+export function rehydrateStores() {
+  useCartStore.persist.rehydrate();
+  useOrderStore.persist.rehydrate();
+  useAuthStore.persist.rehydrate();
+}
 
 export function calculateUnitPrice(
   basePrice: number,
