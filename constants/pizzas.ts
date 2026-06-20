@@ -1,0 +1,223 @@
+import { Pizza, Review, Deal, FAQ } from "@/types";
+
+export const PIZZAS: Pizza[] = [
+  {
+    id: "margherita-neo",
+    name: "Neo Margherita",
+    description: "San Marzano tomatoes, buffalo mozzarella, basil oil, 48h fermented dough.",
+    ingredients: ["Tomato", "Mozzarella", "Basil", "Olive Oil"],
+    image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80",
+    price: 14.99,
+    calories: 820,
+    spiceLevel: 0,
+    category: ["veg", "cheese-burst"],
+    isPremium: false,
+    nutrition: { protein: 32, carbs: 78, fat: 28, fiber: 4 },
+  },
+  {
+    id: "inferno-diavola",
+    name: "Inferno Diavola",
+    description: "Spicy salami, nduja, chili oil, ghost pepper flakes, smoked mozzarella.",
+    ingredients: ["Salami", "Nduja", "Chili", "Mozzarella", "Oregano"],
+    image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=800&q=80",
+    price: 17.99,
+    calories: 940,
+    spiceLevel: 5,
+    category: ["beef", "spicy", "premium"],
+    isPremium: true,
+    nutrition: { protein: 38, carbs: 72, fat: 42, fiber: 3 },
+  },
+  {
+    id: "truffle-mist",
+    name: "Truffle Mist",
+    description: "Wild mushrooms, truffle cream, fontina, thyme, aged parmesan shavings.",
+    ingredients: ["Mushrooms", "Truffle Cream", "Fontina", "Thyme"],
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80",
+    price: 21.99,
+    calories: 880,
+    spiceLevel: 0,
+    category: ["veg", "premium"],
+    isPremium: true,
+    nutrition: { protein: 28, carbs: 68, fat: 38, fiber: 5 },
+  },
+  {
+    id: "bbq-smokehouse",
+    name: "BBQ Smokehouse",
+    description: "Smoked BBQ base, grilled chicken, caramelized onion, cilantro, cheddar blend.",
+    ingredients: ["BBQ Sauce", "Chicken", "Onion", "Cheddar", "Cilantro"],
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80",
+    price: 18.99,
+    calories: 1020,
+    spiceLevel: 2,
+    category: ["chicken"],
+    isPremium: false,
+    nutrition: { protein: 45, carbs: 82, fat: 36, fiber: 4 },
+  },
+  {
+    id: "pepperoni-cups",
+    name: "Pepperoni Cups",
+    description: "Crispy pepperoni cups, mozzarella pools, honey-chili drizzle, oregano dust.",
+    ingredients: ["Pepperoni", "Mozzarella", "Honey", "Chili", "Oregano"],
+    image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=80",
+    price: 16.99,
+    calories: 960,
+    spiceLevel: 3,
+    category: ["beef", "spicy", "cheese-burst"],
+    isPremium: false,
+    nutrition: { protein: 36, carbs: 74, fat: 44, fiber: 3 },
+  },
+  {
+    id: "garden-zen",
+    name: "Garden Zen",
+    description: "Roasted peppers, artichoke, spinach, sun-dried tomato, goat cheese crumble.",
+    ingredients: ["Peppers", "Artichoke", "Spinach", "Tomato", "Goat Cheese"],
+    image: "https://images.unsplash.com/photo-1604382354936-07c5d9986459?w=800&q=80",
+    price: 15.99,
+    calories: 760,
+    spiceLevel: 0,
+    category: ["veg"],
+    isPremium: false,
+    nutrition: { protein: 24, carbs: 70, fat: 26, fiber: 8 },
+  },
+  {
+    id: "buffalo-blaze",
+    name: "Buffalo Blaze",
+    description: "Buffalo chicken, blue cheese mousse, ranch swirl, pickled jalapeños.",
+    ingredients: ["Chicken", "Buffalo Sauce", "Blue Cheese", "Jalapeño"],
+    image: "https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&q=80",
+    price: 18.49,
+    calories: 990,
+    spiceLevel: 4,
+    category: ["chicken", "spicy"],
+    isPremium: false,
+    nutrition: { protein: 42, carbs: 76, fat: 40, fiber: 3 },
+  },
+  {
+    id: "wagyu-supreme",
+    name: "Wagyu Supreme",
+    description: "A5 wagyu crumble, black garlic aioli, micro arugula, 24k parmesan dust.",
+    ingredients: ["Wagyu", "Black Garlic", "Arugula", "Parmesan"],
+    image: "https://images.unsplash.com/photo-1565299506085-0572c8834943?w=800&q=80",
+    price: 29.99,
+    calories: 1100,
+    spiceLevel: 1,
+    category: ["beef", "premium"],
+    isPremium: true,
+    nutrition: { protein: 48, carbs: 68, fat: 52, fiber: 2 },
+  },
+  {
+    id: "quattro-formaggi",
+    name: "Quattro Formaggi",
+    description: "Mozzarella, gorgonzola, fontina, parmesan — quad cheese eruption core.",
+    ingredients: ["Mozzarella", "Gorgonzola", "Fontina", "Parmesan"],
+    image: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=800&q=80",
+    price: 17.49,
+    calories: 920,
+    spiceLevel: 0,
+    category: ["veg", "cheese-burst", "premium"],
+    isPremium: true,
+    nutrition: { protein: 34, carbs: 66, fat: 46, fiber: 2 },
+  },
+];
+
+export const EXTRA_TOPPINGS = [
+  "Extra Cheese",
+  "Mushrooms",
+  "Olives",
+  "Jalapeños",
+  "Pepperoni",
+  "Bacon",
+  "Pineapple",
+  "Anchovies",
+];
+
+export const REVIEWS: Review[] = [
+  {
+    id: "1",
+    name: "Sarah Chen",
+    rating: 5,
+    text: "The 3D menu experience alone is worth it. Pizza arrived in 22 minutes, still blazing hot.",
+    avatar: "SC",
+  },
+  {
+    id: "2",
+    name: "Marcus Webb",
+    rating: 5,
+    text: "Inferno Diavola is no joke. Best delivery UI I've ever used — feels like ordering from the future.",
+    avatar: "MW",
+  },
+  {
+    id: "3",
+    name: "Elena Rossi",
+    rating: 5,
+    text: "Truffle Mist changed my life. The live tracking with the animated rider is *chef's kiss*.",
+    avatar: "ER",
+  },
+];
+
+export const DEALS: Deal[] = [
+  {
+    id: "bogo",
+    title: "Buy 1 Get 1 Free",
+    description: "Order any medium pizza and get a second one free. Weekdays only.",
+    discount: "50% OFF",
+    code: "BOGO2024",
+    expiresAt: "2026-12-31T23:59:59",
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80",
+    badge: "Most Popular",
+  },
+  {
+    id: "family",
+    title: "Family Feast",
+    description: "2 large pizzas + garlic knots + 2L soda. Feeds 4-6 people.",
+    discount: "$15 OFF",
+    code: "FAMILY25",
+    expiresAt: "2026-09-30T23:59:59",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80",
+    badge: "Best Value",
+  },
+  {
+    id: "midnight",
+    title: "Midnight Rush",
+    description: "30% off all premium specials between 10PM - 2AM.",
+    discount: "30% OFF",
+    code: "MIDNIGHT",
+    expiresAt: "2026-06-30T23:59:59",
+    image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80",
+    badge: "Limited Time",
+  },
+];
+
+export const FAQS: FAQ[] = [
+  {
+    question: "How long does delivery take?",
+    answer: "Average delivery time is 25-35 minutes depending on your location and order size. Live tracking keeps you updated every step.",
+  },
+  {
+    question: "Do you offer contactless delivery?",
+    answer: "Yes! Select contactless delivery at checkout and our rider will leave your order at your door with a photo confirmation.",
+  },
+  {
+    question: "Can I customize my pizza?",
+    answer: "Absolutely. Choose size, crust, cheese level, and add unlimited extra toppings on any pizza from our menu.",
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept cash on delivery, credit/debit cards, and Stripe-powered online payments for a seamless checkout.",
+  },
+  {
+    question: "Is there a minimum order for delivery?",
+    answer: "Minimum order is $12. Delivery is free on orders over $25. A $3.99 delivery fee applies otherwise.",
+  },
+];
+
+export const PROMO_CODES: Record<string, number> = {
+  BOGO2024: 0.5,
+  FAMILY25: 15,
+  MIDNIGHT: 0.3,
+  WELCOME10: 0.1,
+};
+
+export function getPizzaById(id: string): Pizza | undefined {
+  return PIZZAS.find((p) => p.id === id);
+}

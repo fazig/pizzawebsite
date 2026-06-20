@@ -1,25 +1,59 @@
-# Fazig Pizza Website
+# Fazig Pizza — Premium Delivery Web App
 
-A pizza restaurant website project.
+Next-generation pizza delivery platform with 3D visuals, glassmorphism UI, live order tracking, and full e-commerce flow.
 
-## About
+## Tech Stack
 
-This repository will host the source code for the Fazig Pizza website — menu, ordering, gallery, and more.
+- **Next.js 15** (App Router, Turbopack)
+- **React 19** + TypeScript
+- **Tailwind CSS 4**
+- **Framer Motion** — animations & transitions
+- **React Three Fiber** — 3D pizza models
+- **Zustand** — cart & order state
+- **Radix UI / Shadcn-style** components
 
-## Getting started
+## Features
 
-Clone the repo:
+- Landing page with 3D rotating pizza hero
+- Full menu with filters & search
+- Product detail with size/crust/toppings customization
+- Cart, checkout, order confirmation
+- Live order tracking with animated map
+- Offers page with countdown timers
+- User account (login, signup, order history)
+- About, Contact, Admin dashboard
+- PWA support, SEO, sitemap, robots.txt
+- Custom cursor, toast notifications, glassmorphism UI
+
+## Getting Started
 
 ```bash
-git clone https://github.com/fazig/pizzawebsite.git
-cd pizzawebsite
+npm install
+npm run dev
 ```
 
-Open `index.html` in your browser once the site is built, or serve locally with any static file server.
+Open [http://localhost:3000](http://localhost:3000)
 
-## Tech stack
+## Deploy to Vercel
 
-- HTML, CSS, JavaScript (planned)
+```bash
+npm run build
+```
+
+Push to GitHub and connect to [Vercel](https://vercel.com) for instant deployment.
+
+## Project Structure
+
+```
+/app          — Next.js pages & routes
+/components   — UI, layout, 3D, effects
+/constants    — Pizza data, navigation, deals
+/hooks        — Toast & custom hooks
+/lib          — Store, utils, metadata
+/types        — TypeScript interfaces
+/public       — Static assets, PWA manifest
+/styles       — Global CSS & Tailwind theme
+```
 
 ## License
 
