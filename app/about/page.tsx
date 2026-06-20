@@ -54,11 +54,20 @@ export default function AboutPage() {
                 >
                   <div className="text-[120px] opacity-80">🔥</div>
                 </motion.div>
-                {[...Array(8)].map((_, i) => (
+                {[
+                  { left: 28, top: 35 },
+                  { left: 45, top: 62 },
+                  { left: 62, top: 28 },
+                  { left: 35, top: 55 },
+                  { left: 55, top: 42 },
+                  { left: 72, top: 58 },
+                  { left: 40, top: 38 },
+                  { left: 68, top: 48 },
+                ].map((ember, i) => (
                   <motion.div
                     key={i}
                     className="absolute h-2 w-2 rounded-full bg-orange-400/60"
-                    style={{ left: `${20 + Math.random() * 60}%`, top: `${20 + Math.random() * 60}%` }}
+                    style={{ left: `${ember.left}%`, top: `${ember.top}%` }}
                     animate={{ y: [0, -20, 0], opacity: [0.3, 1, 0.3] }}
                     transition={{ duration: 2 + i * 0.3, repeat: Infinity, delay: i * 0.2 }}
                   />

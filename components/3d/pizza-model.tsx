@@ -59,24 +59,30 @@ function PizzaModel() {
   );
 }
 
-function FloatingParticles() {
-  const particles = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    x: (Math.random() - 0.5) * 6,
-    y: Math.random() * 3 - 1,
-    z: (Math.random() - 0.5) * 6,
-    size: 0.03 + Math.random() * 0.05,
-    color: ["#ff6b2c", "#ff2d2d", "#f1c40f", "#27ae60"][i % 4],
-  }));
+const FLOATING_PARTICLES = [
+  { id: 0, x: -2.1, y: 0.4, z: 1.8, size: 0.05, speed: 1.2 },
+  { id: 1, x: 1.5, y: 1.2, z: -2.3, size: 0.04, speed: 1.5 },
+  { id: 2, x: -0.8, y: 0.1, z: 2.5, size: 0.06, speed: 1.8 },
+  { id: 3, x: 2.4, y: 0.8, z: -1.1, size: 0.035, speed: 1.1 },
+  { id: 4, x: -2.8, y: 1.5, z: 0.6, size: 0.045, speed: 1.6 },
+  { id: 5, x: 0.9, y: -0.5, z: -2.7, size: 0.055, speed: 1.3 },
+  { id: 6, x: 2.0, y: 0.3, z: 1.2, size: 0.04, speed: 1.7 },
+  { id: 7, x: -1.6, y: 1.8, z: -0.9, size: 0.05, speed: 1.4 },
+  { id: 8, x: 1.1, y: 0.6, z: 2.1, size: 0.035, speed: 1.9 },
+  { id: 9, x: -2.4, y: -0.2, z: -1.8, size: 0.06, speed: 1.2 },
+  { id: 10, x: 2.7, y: 1.1, z: 0.4, size: 0.045, speed: 1.5 },
+  { id: 11, x: -0.5, y: 1.4, z: -2.5, size: 0.05, speed: 1.8 },
+];
 
+function FloatingParticles() {
   return (
     <>
-      {particles.map((p) => (
-        <Float key={p.id} speed={1 + Math.random()} floatIntensity={1.5}>
+      {FLOATING_PARTICLES.map((p) => (
+        <Float key={p.id} speed={p.speed} floatIntensity={1.5}>
           <Sphere args={[p.size, 8, 8]} position={[p.x, p.y, p.z]}>
             <meshStandardMaterial
-              color={p.color}
-              emissive={p.color}
+              color={["#ff6b2c", "#ff2d2d", "#f1c40f", "#27ae60"][p.id % 4]}
+              emissive={["#ff6b2c", "#ff2d2d", "#f1c40f", "#27ae60"][p.id % 4]}
               emissiveIntensity={0.5}
               transparent
               opacity={0.8}

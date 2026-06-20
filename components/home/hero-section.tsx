@@ -13,6 +13,13 @@ const Pizza3D = dynamic(
   { ssr: false, loading: () => <div className="h-[400px] w-full animate-pulse rounded-full bg-white/5" /> }
 );
 
+const HERO_PARTICLES = Array.from({ length: 20 }, (_, i) => ({
+  left: ((i * 37 + 11) % 97) + 1,
+  top: ((i * 53 + 19) % 93) + 2,
+  duration: 3 + (i % 5) * 0.4,
+  delay: (i % 8) * 0.25,
+}));
+
 function DeliveryScooter() {
   return (
     <motion.div
@@ -70,22 +77,22 @@ export function HeroSection() {
       ))}
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {HERO_PARTICLES.map((particle, i) => (
           <motion.div
             key={i}
             className="absolute h-1 w-1 rounded-full bg-orange-400/40"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
             }}
             animate={{
               y: [0, -30, 0],
               opacity: [0.2, 0.8, 0.2],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: particle.delay,
             }}
           />
         ))}
